@@ -1,0 +1,53 @@
+.back-button {
+  float: left;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.character-info {
+  color: orange;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.info {
+  float: right;
+  margin-right: 25px;
+}
+
+ul {
+  float: right;
+  margin-right: 25px;
+}
+
+.more {
+  float: right;
+  margin-left: 10px;
+}
+
+.film-details {
+  color: black;
+  background: orange;
+  width: 400px;
+  height: auto;
+}
+
+.opening {
+  margin-left: 20px;
+  text-align: justify;
+}
+
+.characters {
+  float: left;
+}
+
+.hide-details {
+  width: 100%;
+}

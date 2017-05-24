@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>
+      <button *ngIf="pagination['previous'] != null" (click)="changePage(pagination['previous'], 'previous')">    << Précédent
+      </button>
+    </td>
+
+    <td class="page">{{ page }} / {{ pages }}</td>
+  
+    <td>
+      <button *ngIf="pagination['next'] != null" (click)="changePage(pagination['next'], 'next')">
+        Suivant >>
+      </button>
+    </td>
+  </tr>
+</table>
+
+<app-error-bar [message]="error" *ngIf="error !== ''"></app-error-bar>

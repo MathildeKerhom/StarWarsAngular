@@ -1,0 +1,65 @@
+<button class="back-button" [routerLink]="['/search']"><< Retour</button>
+
+<app-error-bar [message]="error" *ngIf="error !== ''"></app-error-bar>
+
+<div class="character-info" *ngIf="character">
+  <p class="name">{{ character.name }}</p>
+  <table>
+    <tr><td>Taille :</td><td class="info">{{ character.height | height }} m</td></tr>
+    <tr><td>Poids : </td><td class="info">{{ character.mass }} kg</td></tr>
+    <tr><td>Cheveux :</td><td class="info">{{ character.hair_color | translation }}</td></tr>
+    <tr><td>Peau :</td><td class="info">{{ character.skin_color | translation }}</td></tr>
+    <tr><td>Couleur des yeux :</td><td class="info">{{ character.eye_color | translation }}</td></tr>
+    <tr><td>Année de naissance :</td><td class="info">{{ character.birth_year }}</td></tr>
+    <tr><td>Sexe :</td><td class="info">{{ character.gender | translation }}</td></tr>
+    <tr><td>Planète d'origine :</td><td class="info">{{ character.homeworld_name }}</td></tr>
+    <tr><td>Espèce :</td><td class="info">{{ character.main_species | translation }}</td></tr>
+
+    <tr *ngIf="character.starships_names.length != 0">
+      <td>Vaisseaux :</td>
+      <td><ul>
+            <li *ngFor="let starship of character.starships_names">
+              {{ starship }}
+            </li>
+          </ul>
+      </td>
+    </tr>
+    <tr *ngIf="character.vehicles_names.length != 0">
+      <td>Véhicules :</td>
+      <td><ul>
+            <li *ngFor="let vehicule of character.vehicles_names">
+              {{ vehicule }}
+            </li>
+          </ul>
+      </td>
+    </tr>
+    <tr *ngIf="character.films.length != 0">
+        <td>Films :</td>
+        <td><ul>
+              <li *ngFor="let film of character.films">
+                {{ film.title }}
+                <button class="more" (click)="displayDetails(film)" *ngIf="!film.display">
+                  En savoir +
+                </button>
+
+                <div *ngIf="film.display" class="film-details">
+                  <p>Episode : {{ film.episode_id }}</p>
+                  <p>Directeur : {{ film.director }}</p>
+                  <p>Producteur : {{ film.producer }}</p>
+                  <p>Date de sortie : {{ film.release_date | toDate | date: "dd/MM/yyyy"}}</p>
+                  <p>Ouverture :</p>
+                  <p class="opening">{{ film.opening_crawl }}</p>
+                  <p>Personnages :</p>
+                    <ul class="characters">
+                      <li *ngFor="let character of film.characters_names">
+                        {{ character }}
+                      </li>
+                    </ul>
+                  <button (click)="hideDetails(film)" class="hide-details">Masquer les détails</button>
+                </div>
+              </li>
+            </ul>
+        </td>
+    </tr>
+  </table>
+</div>

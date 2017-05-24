@@ -1,0 +1,48 @@
+.search-bar {
+  border-radius: 2px;
+  border-color: orange;
+}
+
+.error {
+  color: red;
+}
+
+.researched {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.character-info {
+  background: orange;
+  color: black;
+  width: 300px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.details {
+  display: block;
+  width: 100%;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+td {
+  color: orange;
+  text-align: left;
+}
+
+td > button {
+  float: right;
+}

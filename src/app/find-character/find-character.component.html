@@ -1,0 +1,27 @@
+<h1>Star Wars</h1>
+
+<app-error-bar [message]="error" *ngIf="error !== ''"></app-error-bar>
+
+<input [ngClass]="{error: error != ''}" class="search-bar" type="text" [(ngModel)]="search" placeholder="Nom du personnage" (keyup.Enter)="searchCharacter()" (keyup.Backspace)="checkInput()" />
+<button (click)="searchCharacter()">Rechercher</button>
+
+<div class="researched">
+  <span class="character-info" *ngFor="let character of results">
+    <p class="name">{{ character.name }}</p>
+    <p>Sexe : {{ character.gender | translation }}</p>
+    <p>Année de naissance : {{ character.birth_year | translation }}</p>
+
+    <button class="button details" [routerLink]="['/character', character.name]">Voir détails</button>
+  </span>>
+</div>
+
+<div *ngIf="allCharacters" class="characters-list">
+  <table>
+    <tr *ngFor="let character of allCharacters">
+      <td>{{ character.name }}</td>
+      <td><button [routerLink]="['/character', character.name]">Voir détails</button></td>
+    </tr>
+  </table>
+</div>
+
+<app-pagination [page]="currentPage" (pageChanged)="changePage($event)"></app-pagination>
